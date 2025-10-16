@@ -6,20 +6,19 @@ const bgm = document.getElementById("bg");
 const carrotSound = document.getElementById('carrot-sound');
 const bugSound = document.getElementById('bug-sound');
 const winSound = document.getElementById('win-sound');
-
-// make Start button function
-// timer run
-// create carrot and bugs
-// count shows up (carrot number)
-// play music
+const retryButton = document.querySelector(".retry");
+const bugs = document.querySelectorAll(".bug");
 
 
-startButton.addEventListener('click', () => {
+
+startButton.addEventListener('click', gameStart);
+
+function gameStart() {
   countDown();
   addIcons();
   bgm.currentTime = 0;
   bgm.play();
-});
+}
 
 let timeLeft = 60;
 timer.textContent = formatTime(timeLeft);
@@ -53,9 +52,8 @@ function carrotCount() {
     const winMessage = document.createElement("p");
     winMessage.textContent = "You Win!";
     playGround.appendChild(winMessage);
-    clearInterval(countdownInterval);
-    bgm.pause();
     winSound.play();
+    gameEnd();
   }
 }
 
@@ -116,17 +114,22 @@ playGround.addEventListener('click', (event) => {
   const gameoverMessage = document.createElement("p");
   gameoverMessage.textContent = "Ouch!";
   playGround.appendChild(gameoverMessage);
-  clearInterval(countdownInterval);
-  bgm.pause();
   bugSound.play();
+  gameEnd();
 });
 
 
+function gameEnd() {
+  clearInterval(countdownInterval);
+  bgm.pause();
+  startButton.style.display = "none";
+  retryButton.style.display = "inline-block";
+}
 
+function gameRetry() {
+  timeLeft = 60;
+  playGround.innerHTML = '';
+  gameStart();
+}
 
-
-// 누르면 자워짐 소리남
-// 누르면 게임 오버 소리남
-
-
-
+retryButton.addEventListener('click', gameRetry);

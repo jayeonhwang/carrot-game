@@ -17,9 +17,6 @@ body {
   border-radius: 15px;
 }
 
-.start-button {
-  margin-top: 8px;
-}
 .scores {
   margin: 8px;
   display: flex;
@@ -27,6 +24,14 @@ body {
   justify-content: center;
   align-items: center;
   gap: 5px;
+}
+
+.start-button {
+  margin-top: 8px;
+}
+.retry {
+  margin-top: 8px;
+  display: none;
 }
 
 .timer {
