@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Carrot game</title>
+    <meta
+      name="description"
+      content="game with DOM event and vanila javascript"
+    />
+    <meta name="author" content="Jayeon" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/9737100b41.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Javascript -->
+    <script type="module" src="main.js" defer></script>
+  </head>
+  <body>
+    <audio id="carrot-sound" src="sound/carrot_pull.mp3"></audio>
+    <audio id="bg" src="sound/bg.mp3"></audio>
+    <audio id="bug-sound" src="sound/bug_pull.mp3"></audio>
+    <audio id="alert-sound" src="sound/alert.wav"></audio>
+    <audio id="win-sound" src="sound/game_win.mp3"></audio>
+
+    <section class="game">
+      <button class="start-button"><i class="fa-solid fa-play"></i></button>
+      <div class="scores">
+        <span class="timer">00:00</span>
+        <span class="counter">10</span>
+      </div>
+      <div class="play-ground"></div>
+    </section>
+  </body>
+</html>

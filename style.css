@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+  font-size: 28px;
+}
+body {
+  text-align: center;
+}
+
+.game {
+  background-image: url(img/background.png);
+  background-repeat: none;
+  background-size: contain;
+  width: 90vw;
+  aspect-ratio: 16/9;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.start-button {
+  margin-top: 8px;
+}
+.scores {
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.timer {
+  padding: 3px;
+  background-color: white;
+  border: 1px solid black;
+  width: 100px;
+}
+
+.counter {
+  background-color: darkorange;
+  padding: 8px 15px;
+  color: white;
+  border-radius: 100%;
+}
+
+.play-ground {
+  position: relative;
+  width: 90vw;
+  height: 67%;
+  margin: 0;
+}
+
+/* top 0~ 150px, left 0~610*/
+
+.carrot {
+  position: absolute;
+  top: 150px;
+  left: 610px;
+}
+
+.bug {
+  position: absolute;
+  top: 0px;
+  left: 50px;
+}
