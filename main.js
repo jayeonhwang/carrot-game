@@ -13,11 +13,16 @@ const bugs = document.querySelectorAll(".bug");
 
 startButton.addEventListener('click', gameStart);
 
+let isGamePlaying = false;
 function gameStart() {
+  isGamePlaying = true;
   countDown();
   addIcons();
   bgm.currentTime = 0;
   bgm.play();
+  counter.innerText = 10;
+  retryButton.style.display = "none";
+  startButton.style.display = "none";
 }
 
 let timeLeft = 60;
@@ -101,6 +106,7 @@ function createBug() {
 
 
 playGround.addEventListener('click', (event) => {
+  if (!isGamePlaying) return;
   const target = event.target.closest('.carrot');
   if (!target) return;
   carrotSound.play();
@@ -109,6 +115,7 @@ playGround.addEventListener('click', (event) => {
 });
 
 playGround.addEventListener('click', (event) => {
+  if (!isGamePlaying) return;
   const target = event.target.closest('.bug');
   if (!target) return;
   const gameoverMessage = document.createElement("p");
@@ -124,6 +131,7 @@ function gameEnd() {
   bgm.pause();
   startButton.style.display = "none";
   retryButton.style.display = "inline-block";
+  isGamePlaying = false;
 }
 
 function gameRetry() {
